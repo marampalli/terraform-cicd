@@ -9,7 +9,7 @@ terraform {
 }  
   backend "s3" {
     bucket = "srini-terraform-statefile"
-    key    = "dev"
+    key    = "dev/dev.tfstate"
     region = "ap-south-1"
   }
 # Provider Block
