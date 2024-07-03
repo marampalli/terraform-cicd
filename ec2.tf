@@ -6,7 +6,7 @@
     Name = "HelloWorld"
   }
 }
-*/
+
 resource "aws_instance" "jenkins"{
   ami = "ami-0cc9838aa7ab1dce7"
   instance_type = "t2.micro"
@@ -17,3 +17,4 @@ resource "aws_instance" "jenkins"{
     Environment = "dev"
   } 
 }
+*/
