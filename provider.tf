@@ -7,14 +7,12 @@ terraform {
     }
   } 
 }  
-# Provider Block
-provider "aws" {
-  region = "us-east-1"
-}
-terraform {
   backend "s3" {
     bucket = "srini-terraform-statefile"
     key    = "dev"
     region = "ap-south-1"
   }
+# Provider Block
+  provider "aws" {
+  region = "ap-south-1"
 }
