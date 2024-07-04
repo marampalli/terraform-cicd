@@ -1,4 +1,4 @@
-/*data "aws_availability_zones" "available" {}
+data "aws_availability_zones" "available" {}
 
 locals {
   name   = "ex-${basename(path.cwd)}"
@@ -19,7 +19,7 @@ locals {
 ################################################################################
 
 module "vpc" {
-  source = "../../"
+  source = "terraform-aws-modules/vpc/aws"
 
   name = local.name
   cidr = local.vpc_cidr
@@ -29,4 +29,3 @@ module "vpc" {
 
   tags = local.tags
 }
-*/

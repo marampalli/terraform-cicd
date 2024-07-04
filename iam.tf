@@ -1,3 +1,4 @@
+/*
 ##############
 # IAM account
 ##############
@@ -10,3 +11,4 @@ module "iam" {
   minimum_password_length = 6
   require_numbers         = false
 }
+*/
