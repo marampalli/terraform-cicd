@@ -1,3 +1,4 @@
+/*
 data "aws_availability_zones" "available" {}
 
 locals {
@@ -29,3 +30,4 @@ module "vpc" {
 
   tags = local.tags
 }
+*/
