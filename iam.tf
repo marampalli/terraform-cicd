@@ -1,13 +1,10 @@
+module "iam_user" {
+  source  = "terraform-aws-modules/iam/aws//modules/iam-user"
 
-##############
-# IAM account
-##############
-module "iam" {
-  source  = "terraform-aws-modules/iam/aws"
-  version = "5.39.1"
+  name          = "test-user"
+  force_destroy = true
 
-  name = "test-user"
+ # pgp_key = "keybase:test"
 
-  minimum_password_length = 6
-  require_numbers         = false
+  password_reset_required = false
 }
