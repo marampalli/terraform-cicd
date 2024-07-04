@@ -6,7 +6,6 @@ locals {
 variable "az_count" {
   default = 3
 }
-  count = var.az_count
   vpc_cidr = "10.0.0.0/16"
   azs      =  slice(data.aws_availability_zones.available.names, 0, var.az_count)
 
