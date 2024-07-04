@@ -3,9 +3,12 @@ data "aws_availability_zones" "available" {}
 locals {
   name   = "ex-${basename(path.cwd)}"
   region = "ap-south-1"
-
+variable "az_count" {
+  default = 3
+}
+  count = var.az_count
   vpc_cidr = "10.0.0.0/16"
-  azs      = slice(data.aws_availability_zones.available.names, 0, 3)
+  azs      =  slice(data.aws_availability_zones.available.names, 0, var.az_count)
 
   tags = {
     Example    = local.name
