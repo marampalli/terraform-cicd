@@ -1,20 +1,32 @@
-resource "aws_instance" "web" {
-  ami           = "ami-022ce6f32988af5fa"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "HelloWorld"
+data "aws_ami" "amzlinux" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name    = "name"
+    values  = ["amzn2-ami-hvm-*-gp2"]
+    }
+  filter {
+    name    = "root-device-type"
+    values  = ["ebs"]
+  }  
+  filter {
+    name    = "virtualization-type"
+    values  = ["hvm"]
+  }
+  filter {
+    name    = "architecture"
+    values  = ["x86_64"]
   }
 }
-/*
-resource "aws_instance" "jenkins"{
-  ami = "ami-0cc9838aa7ab1dce7"
+
+resource "aws_instance" "jenkins" {
+  ami = data.aws_ami.amzlinux.id
+  #count = 1
   instance_type = "t2.micro"
+  user_data = file("${path.module}/app1-install.sh")
   key_name = "terraform-key"
   tags = {
-    Name = "Jenkins Server"
-    Terraform   = "true"
-    Environment = "dev"
-  } 
+    #Name = "Jenkins-Server-${count.index}"
+    Name = "Jenkins"
+  }
 }
-*/
