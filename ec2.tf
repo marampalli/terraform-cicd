@@ -1,4 +1,4 @@
-/*resource "aws_instance" "web" {
+resource "aws_instance" "web" {
   ami           = "ami-022ce6f32988af5fa"
   instance_type = "t2.micro"
 
@@ -6,7 +6,7 @@
     Name = "HelloWorld"
   }
 }
-
+/*
 resource "aws_instance" "jenkins"{
   ami = "ami-0cc9838aa7ab1dce7"
   instance_type = "t2.micro"
