@@ -1,3 +1,4 @@
+/*
 data "aws_ami" "amzlinux" {
   most_recent = true
   owners      = ["amazon"]
@@ -21,7 +22,7 @@ data "aws_ami" "amzlinux" {
 
 resource "aws_instance" "jenkins" {
   ami = data.aws_ami.amzlinux.id
-  #count = 1
+  count = 0
   instance_type = "t2.micro"
   user_data = file("${path.module}/app1-install.sh")
   key_name = "terraform-key"
@@ -30,3 +31,4 @@ resource "aws_instance" "jenkins" {
     Name = "Jenkins"
   }
 }
+*/
