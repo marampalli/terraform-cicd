@@ -18,7 +18,7 @@ pipeline {
                         terraform version
                         pwd
                         terraform init
-                        terraform plan -out=plan.txt
+                        terraform plan > plan.txt
                         cat plan.txt
                         #terraform apply -auto-approve
                         #terraform destroy -auto-approve
