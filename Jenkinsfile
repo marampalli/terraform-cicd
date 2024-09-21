@@ -18,7 +18,8 @@ pipeline {
                         terraform version
                         pwd
                         terraform init
-                        terraform plan
+                        terraform plan -out=plan.txt
+                        cat plan.txt
                         #terraform apply -auto-approve
                         #terraform destroy -auto-approve
                         #LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition-prod.json | jq '.taskDefinition.revision')
