@@ -19,7 +19,7 @@ pipeline {
                         pwd
                         terraform init
                         terraform plan -out=plan.txt
-                        terraform apply -f plan.txt -auto-approve
+                        terraform apply "plan.txt" -auto-approve
                         #terraform destroy -auto-approve
                         #LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition-prod.json | jq '.taskDefinition.revision')
                         #aws ecs update-service --cluster $AWS_ECS_CLUSTER --service $AWS_ECS_SERVICE_PROD --task-definition $AWS_ECS_TD_PROD:$LATEST_TD_REVISION
